@@ -151,11 +151,11 @@
     </header>
     
     <nav>
-        <a href="#">Startseite</a>
-        <a href="#">So funktioniert's</a>
-        <a href="#">Preise</a>
-        <a href="#">Über uns</a>
-        <a href="#">Kontakt</a>
+        <a href="menu-link">Startseite</a>
+        <a href="menu-link">So funktioniert's</a>
+        <a href="menu-link">Preise</a>
+        <a href="menu-link">Über uns</a>
+        <a href="menu-link">Kontakt</a>
     </nav>
     
     <div class="hero">
