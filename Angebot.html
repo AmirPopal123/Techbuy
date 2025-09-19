@@ -169,7 +169,6 @@
       display: none;
     }
 
-    /* Responsive Anpassungen */
     @media (max-width: 768px) {
       .container {
         padding: 2rem;
@@ -224,15 +223,28 @@
           <select id="payment" name="payment" class="form-control" required>
             <option value="">-- bitte wählen --</option>
             <option value="paypal">PayPal</option>
-            <option value="post">Post</option>
             <option value="bank">Banküberweisung</option>
           </select>
         </div>
 
-        <!-- Details -->
-        <div class="form-group">
-          <label for="details">Benötigte Daten (z. B. PayPal-Mail oder IBAN)*</label>
-          <input type="text" id="details" name="details" class="form-control" placeholder="Ihre Angabe" required>
+        <!-- PayPal Felder -->
+        <div id="paypal-fields" class="hidden">
+          <div class="form-group">
+            <label for="paypal_email">PayPal E-Mail*</label>
+            <input type="email" id="paypal_email" name="paypal_email" class="form-control" placeholder="Ihre PayPal E-Mail">
+          </div>
+        </div>
+
+        <!-- Bank Felder -->
+        <div id="bank-fields" class="hidden">
+          <div class="form-group">
+            <label for="bank_name">Kontoinhaber*</label>
+            <input type="text" id="bank_name" name="bank_name" class="form-control" placeholder="Max Mustermann">
+          </div>
+          <div class="form-group">
+            <label for="iban">IBAN*</label>
+            <input type="text" id="iban" name="iban" class="form-control" placeholder="DE00 1234 1234 1234 1234 00">
+          </div>
         </div>
 
         <button type="submit" class="cta-button">
@@ -256,12 +268,35 @@
     const form = document.getElementById("angebot-form");
     const formArea = document.getElementById("form-area");
     const thankyou = document.getElementById("thankyou");
+    const paymentSelect = document.getElementById("payment");
+    const paypalFields = document.getElementById("paypal-fields");
+    const bankFields = document.getElementById("bank-fields");
 
     // Erfolgsmeldung anzeigen, wenn Hash vorhanden
     if (window.location.hash === '#thankyou') {
       formArea.classList.add("hidden");
       thankyou.classList.remove("hidden");
     }
+
+    // Dynamische Felder ein-/ausblenden
+    paymentSelect.addEventListener("change", function() {
+      paypalFields.classList.add("hidden");
+      bankFields.classList.add("hidden");
+
+      document.getElementById("paypal_email").required = false;
+      document.getElementById("bank_name").required = false;
+      document.getElementById("iban").required = false;
+
+      if (this.value === "paypal") {
+        paypalFields.classList.remove("hidden");
+        document.getElementById("paypal_email").required = true;
+      } 
+      else if (this.value === "bank") {
+        bankFields.classList.remove("hidden");
+        document.getElementById("bank_name").required = true;
+        document.getElementById("iban").required = true;
+      }
+    });
 
     form.addEventListener("submit", async function(e) {
       e.preventDefault();
