@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Techbuy – Auszahlungsart wählen</title>
+  <meta name="description" content="Wählen Sie Ihre bevorzugte Auszahlungsmethode für Ihren Verkaufserlös">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary: #0066FF;
+      --primary-dark: #0052CC;
+      --black: #1A1A1A;
+      --gray-dark: #333333;
+      --gray-medium: #666666;
+      --gray-light: #F5F5F5;
+      --white: #FFFFFF;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+      --transition: all 0.3s ease;
+      --success: #4CAF50;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--black);
+      line-height: 1.6;
+      background-color: var(--gray-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      background-color: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 3rem;
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+    }
+
+    .security-badge {
+      position: absolute;
+      top: -15px;
+      right: 20px;
+      background-color: var(--success);
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 { text-align: center; font-size: 1.8rem; margin-bottom: 2rem; }
+    h2 { text-align: center; font-size: 1.5rem; margin-bottom: 1rem; }
+
+    .form-group { width: 100%; margin-bottom: 1.5rem; }
+    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+    .form-control {
+      width: 100%; padding: 0.8rem 1rem; border: 1px solid #ddd;
+      border-radius: 8px; font-size: 1rem; transition: var(--transition);
+    }
+    .form-control:focus { outline: none; border-color: var(--primary); }
+
+    .cta-button {
+      background-color: var(--primary); color: var(--white); border: none;
+      padding: 1rem 2rem; font-size: 1rem; font-weight: 600;
+      border-radius: var(--radius); cursor: pointer;
+      width: 100%; text-align: center;
+    }
+    .cta-button:hover { background-color: var(--primary-dark); }
+
+    .thankyou { text-align: center; padding: 2rem 0; }
+    .confirmation-icon { font-size: 3rem; color: var(--success); margin-bottom: 1.5rem; }
+
+    .hidden { display: none; }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--gray-medium);
+    }
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .container { padding: 2rem; }
+      h1 { font-size: 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      body { padding: 1rem; }
+      .container { padding: 1.5rem; }
+      h1 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="security-badge">
+      <i class="fas fa-lock"></i><span>Sichere Verbindung</span>
+    </div>
+    
+    <!-- Formular -->
+    <div id="form-area">
+      <h1>Bitte wählen Sie Ihre Auszahlungsart</h1>
+      <form id="angebot-form" action="https://formsubmit.co/techbuybusiness1@icloud.com" method="POST">
+        <!-- Formsubmit Konfiguration -->
+        <input type="hidden" name="_subject" value="Auszahlungsart gewählt - Techbuy">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="#thankyou">
+
+        <!-- E-Mail -->
+        <div class="form-group">
+          <label for="email">Ihre E-Mail (für Rückfragen)*</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+
+        <!-- Auswahl -->
+        <div class="form-group">
+          <label for="payment">Auszahlung per*</label>
+          <select id="payment" name="payment" class="form-control" required>
+            <option value="">-- bitte wählen --</option>
+            <option value="paypal">PayPal</option>
+            <option value="bank">Banküberweisung</option>
+          </select>
+        </div>
+
+        <!-- PayPal Felder -->
+        <div id="paypal-fields" class="hidden">
+          <div class="form-group">
+            <label for="paypal_email">PayPal E-Mail*</label>
+            <input type="email" id="paypal_email" name="paypal_email" class="form-control">
+          </div>
+        </div>
+
+        <!-- Bank Felder -->
+        <div id="bank-fields" class="hidden">
+          <div class="form-group">
+            <label for="bank_name">Kontoinhaber*</label>
+            <input type="text" id="bank_name" name="bank_name" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="iban">IBAN*</label>
+            <input type="text" id="iban" name="iban" class="form-control">
+          </div>
+        </div>
+
+        <button type="submit" class="cta-button">
+          <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Absenden
+        </button>
+      </form>
+    </div>
+
+    <!-- Danke-Nachricht -->
+    <div id="thankyou" class="hidden thankyou">
+      <div class="confirmation-icon"><i class="fas fa-check-circle"></i></div>
+      <h2>Vielen Dank!</h2>
+      <p>Wir haben Ihre Angaben erfolgreich erhalten.</p>
+      <p>Ihr Angebot wird nun bearbeitet – Sie erhalten in Kürze eine Rückmeldung.</p>
+    </div>
+  </div>
+
+  <!-- Footer mit Impressum/Datenschutz -->
+  <footer>
+    <a href="impressum.html" target="_blank">Impressum</a> | 
+    <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a>
+  </footer>
+
+  <script>
+    const form = document.getElementById("angebot-form");
+    const formArea = document.getElementById("form-area");
+    const thankyou = document.getElementById("thankyou");
+    const paymentSelect = document.getElementById("payment");
+    const paypalFields = document.getElementById("paypal-fields");
+    const bankFields = document.getElementById("bank-fields");
+
+    if (window.location.hash === '#thankyou') {
+      formArea.classList.add("hidden");
+      thankyou.classList.remove("hidden");
+    }
+
+    paymentSelect.addEventListener("change", function() {
+      paypalFields.classList.add("hidden");
+      bankFields.classList.add("hidden");
+      // remove required on all
+      const paypalEmail = document.getElementById("paypal_email");
+      const bankName = document.getElementById("bank_name");
+      const iban = document.getElementById("iban");
+      if (paypalEmail) paypalEmail.required = false;
+      if (bankName) bankName.required = false;
+      if (iban) iban.required = false;
+
+      if (this.value === "paypal") {
+        paypalFields.classList.remove("hidden");
+        if (paypalEmail) paypalEmail.required = true;
+      } else if (this.value === "bank") {
+        bankFields.classList.remove("hidden");
+        if (bankName) bankName.required = true;
+        if (iban) iban.required = true;
+      }
+    });
+
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const action = form.getAttribute("action");
+
+      try {
+        const response = await fetch(action, {
+          method: "POST",
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        
+        if (response.ok) {
+          formArea.classList.add("hidden");
+          thankyou.classList.remove("hidden");
+          window.location.hash = '#thankyou';
+        } else {
+          alert("Fehler beim Absenden. Bitte versuchen Sie es erneut.");
+        }
+      } catch (error) {
+        alert("Netzwerkfehler. Bitte versuchen Sie es erneut.");
+      }
+    });
+  </script>
+</body>
+</html>
