@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://amirpopal123.github.io/Techbuy/</loc></url>
+
+  <!-- Startseite -->
+  <url>
+    <loc>https://amirpopal123.github.io/Techbuy/</loc>
+    <lastmod>2025-10-02</lastmod>
+    <priority>1.0</priority>
+  </url>
 
   <!-- Apple iPhones -->
   <url><loc>https://amirpopal123.github.io/Techbuy/apple-iphone-17-pro-max-verkaufen.html</loc></url>
@@ -33,4 +39,5 @@
   <url><loc>https://amirpopal123.github.io/Techbuy/xiaomi-15-ultra-verkaufen.html</loc></url>
   <url><loc>https://amirpopal123.github.io/Techbuy/xiaomi-15-pro-verkaufen.html</loc></url>
   <url><loc>https://amirpopal123.github.io/Techbuy/xiaomi-15-verkaufen.html</loc></url>
+
 </urlset>
