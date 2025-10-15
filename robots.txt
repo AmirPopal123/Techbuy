@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amirpopal123.github.io/Techbuy-webselte/sitemap.xml
