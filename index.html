@@ -1247,7 +1247,9 @@
 <div style="position: fixed; bottom: 1rem; right: 1rem; z-index: 9999;">
   <button class="cta-button-outline" onclick="openConsent()">Cookie-Einstellungen</button>
 </div>
-
+<div id="success" style="display:none; padding:16px; border:1px solid #cce5cc; background:#e8f9e8; margin-top:16px;">
+  ✅ Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.
+</div>
 
 <script>
   function setConsent(consent) {
@@ -1424,7 +1426,12 @@
     if (box) box.style.display = 'block';
   }
 </script>
-
+<script>
+  if (window.location.hash === '#success') {
+    const box = document.getElementById('success');
+    if (box) box.style.display = 'block';
+  }
+</script>
 <!-- SEO Content für bessere Keyword-Abdeckung -->
 <div style="display: none;" aria-hidden="true">
   <h2>Handyankauf Services</h2>
