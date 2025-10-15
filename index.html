@@ -1240,7 +1240,9 @@
     </form>
   </div>
 </div>
-
+<div id="success" style="display:none; padding:16px; border:1px solid #cce5cc; background:#e8f9e8; margin-top:16px;">
+  Danke! Ihre Anfrage wurde gesendet. Wir melden uns in Kürze.
+</div>
 <!-- Nachträglicher Consent-Link -->
 <div style="position: fixed; bottom: 1rem; right: 1rem; z-index: 9999;">
   <button class="cta-button-outline" onclick="openConsent()">Cookie-Einstellungen</button>
@@ -1415,6 +1417,12 @@
       }
     });
   });
+</script>
+	<script>
+  if (window.location.hash === '#success') {
+    const box = document.getElementById('success');
+    if (box) box.style.display = 'block';
+  }
 </script>
 
 <!-- SEO Content für bessere Keyword-Abdeckung -->
