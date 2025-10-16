@@ -2,11 +2,18 @@
 <html lang="de">
 <head>
   <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17657259652"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
+
+  // WICHTIG: Standardmäßig kein Tracking bis Einwilligung
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied'
+  });
 
   gtag('config', 'AW-17657259652');
 </script>
@@ -1279,6 +1286,12 @@ IBAN: ${formData.get('iban') || 'Nicht angegeben'}
         document.getElementById('success-message').style.display = 'block';
         form.style.display = 'none';
         document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
+        // Google Ads Conversion Tracking (Lead)
+gtag('event', 'conversion', {
+  'send_to': 'AW-17657259652/DEIN_CONVERSION_LABEL', // <--- Label aus Google Ads einsetzen!
+  'value': 1.0,
+  'currency': 'EUR'
+});
       })
       .catch(error => {
         console.error('Error:', error);
