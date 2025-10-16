@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17657259652"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17657259652');
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Techbuy – Gebrauchtes Handy verkaufen | Smartphone Ankauf zu fairen Preisen</title>
@@ -1153,15 +1162,32 @@
         document.getElementById('cookie-modal').style.display = 'flex';
       }
 
-      document.getElementById('accept-all').onclick = () => {
-        setConsent({ essential: true, analytics: true, marketing: true });
-      };
+     document.getElementById('accept-all').onclick = () => {
+  setConsent({ essential: true, analytics: true, marketing: true });
+  // Google Ads Consent aktivieren
+  gtag('consent', 'update', {
+    'ad_storage': 'granted',
+    'analytics_storage': 'granted'
+  });
+};
 
       document.getElementById('reject-all').onclick = () => {
-        setConsent({ essential: true, analytics: false, marketing: false });
-      };
-    });
+  setConsent({ essential: true, analytics: false, marketing: false });
+  // Google Ads Tracking deaktivieren
+  gtag('consent', 'update', {
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied'
+  });
+}; 
+document.getElementById('accept-all').onclick = () => {
+  setConsent({ essential: true, analytics: true, marketing: true });
+  gtag('consent', 'update', { 'ad_storage': 'granted', 'analytics_storage': 'granted' });
+};
 
+document.getElementById('reject-all').onclick = () => {
+  setConsent({ essential: true, analytics: false, marketing: false });
+  gtag('consent', 'update', { 'ad_storage': 'denied', 'analytics_storage': 'denied' });
+};
     // Payment Method Toggle
     document.getElementById('payment_method').addEventListener('change', function() {
       const method = this.value;
