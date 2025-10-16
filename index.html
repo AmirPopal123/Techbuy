@@ -1144,45 +1144,52 @@
   <div style="position: fixed; bottom: 1rem; right: 1rem; z-index: 9999;">
     <button class="cta-button-outline" onclick="openConsent()">Cookie-Einstellungen</button>
   </div>
+  <div id="cookie-model" style="display: none;">
+    <!-- Dein Cookie-Banner Inhalt -->
+    <button id="accept-all">Alle akzeptieren</button>
+    <button id="reject-all">Alle ablehnen</button>
+</div>
 
   <script>
     // Cookie Management
-    function setConsent(consent) {
-      localStorage.setItem('cookieConsent', JSON.stringify(consent));
-      document.getElementById('cookie-modal').style.display = 'none';
+// Korrigierte setConsent Funktion (falls nicht vorhanden)
+function setConsent(consent) {
+    localStorage.setItem('cookieConsent', JSON.stringify(consent));
+    document.getElementById('cookie-model').style.display = 'none';
+}
+
+function openConsent() {
+    document.getElementById('cookie-model').style.display = 'block';
+}
+
+window.addEventListener('load', () => {
+    const saved = localStorage.getItem('cookieConsent');
+    if (!saved) {
+        document.getElementById('cookie-model').style.display = 'block';
     }
 
-    function openConsent() {
-      document.getElementById('cookie-modal').style.display = 'flex';
-    }
+    document.getElementById('accept-all').onclick = () => {
+        setConsent({ essential: true, analytics: true, marketing: true });
+        // Google Tag Consent aktivieren
+        if (typeof gtag !== 'undefined') {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
+        }
+    };
 
-    window.addEventListener('load', () => {
-      const saved = localStorage.getItem('cookieConsent');
-      if (!saved) {
-        document.getElementById('cookie-modal').style.display = 'flex';
-      }
-
-     document.getElementById('accept-all').onclick = () => {
-  setConsent({ essential: true, analytics: true, marketing: true });
-  // Google Ads Consent aktivieren
-  gtag('consent', 'update', {
-    'ad_storage': 'granted',
-    'analytics_storage': 'granted'
-  });
-};
-
-      document.getElementById('reject-all').onclick = () => {
-  setConsent({ essential: true, analytics: false, marketing: false });
-  // Google Ads Tracking deaktivieren
-  gtag('consent', 'update', {
-    'ad_storage': 'denied',
-    'analytics_storage': 'denied'
-  });
-}; 
-document.getElementById('accept-all').onclick = () => {
-  setConsent({ essential: true, analytics: true, marketing: true });
-  gtag('consent', 'update', { 'ad_storage': 'granted', 'analytics_storage': 'granted' });
-};
+    document.getElementById('reject-all').onclick = () => {
+        setConsent({ essential: true, analytics: false, marketing: false });
+        // Google Tag Consent deaktivieren
+        if (typeof gtag !== 'undefined') {
+            gtag('consent', 'update', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied'
+            });
+        }
+    };
+});
 
 document.getElementById('reject-all').onclick = () => {
   setConsent({ essential: true, analytics: false, marketing: false });
