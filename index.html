@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <!-- Google tag (gtag.js) - OPTIMIERT FÜR CONVERSIONS -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17657295652"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    // Standard: Kein Tracking ohne Einwilligung
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+
+    // Grundkonfiguration für Google Ads
+    gtag('config', 'AW-17657295652', {
+      'anonymize_ip': true,
+      'allow_google_signals': false,
+      'allow_ad_personalization_signals': false
+    });
+  </script>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Techbuy – Gebrauchtes Handy verkaufen | Smartphone Ankauf zu fairen Preisen</title>
+  <meta name="description" content="✓ Gebrauchtes Smartphone verkaufen bei Techbuy ✓ Fairer Preis ✓ Kostenloser Versand ✓ Sichere Auszahlung ✓ iPhone, Samsung & mehr ankaufen ✓ DSGVO-konform">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://www.techbuy.de" />
+  <meta name="keywords" content="Handy verkaufen, Smartphone verkaufen, gebrauchtes Handy, iPhone verkaufen, Samsung verkaufen, Handyankauf, Smartphone Ankauf, Techbuy, Geld für Handy">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #0066FF;
+      --primary-dark: #0052CC;
+      --primary-light: #e6f0ff;
+      --gradient: linear-gradient(135deg, #0066FF 0%, #7C3AED 100%);
+      --black: #1A1A1A;
+      --gray-dark: #333333;
+      --gray-medium: #666666;
+      --gray-light: #F8FAFC;
+      --white: #FFFFFF;
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.15);
+      --radius: 16px;
+      --whatsapp: #25D366;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --error: #EF4444;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--black);
+      line-height: 1.6;
+      background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+      padding: 16px 5%;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo-icon {
+      font-size: 1.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--gray-dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background: var(--gradient);
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 25px;
+      left: 25px;
+      background: var(--whatsapp);
+      color: var(--white);
+      border-radius: 50px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      animation: pulse-whatsapp 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-float i {
+      font-size: 1.8rem;
+    }
+
+    .whatsapp-tooltip {
+      position: absolute;
+      bottom: 70px;
+      left: 0;
+      background: var(--white);
+      color: var(--black);
+      padding: 0.8rem 1.2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      font-size: 0.9rem;
+      font-weight: 500;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: var(--transition);
+      pointer-events: none;
+    }
+
+    .whatsapp-float:hover .whatsapp-tooltip {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes pulse-whatsapp {
+      0% { box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4); }
+      50% { box-shadow: 0 8px 35px rgba(37, 211, 102, 0.7); }
+      100% { box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4); }
+    }
+
+    /* Trust Badges */
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 1.5rem 5%;
+      background: var(--white);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      margin-top: 80px;
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--gray-dark);
+      font-weight: 500;
+    }
+
+    .trust-badge i {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 1.3rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+      padding: 6rem 5%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0,102,255,0.1) 0%, rgba(0,102,255,0) 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #1A1A1A 0%, #0066FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: var(--gray-medium);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 400;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .cta-button {
+      background: var(--gradient);
+      color: var(--white);
+      border: none;
+      padding: 1.2rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(0, 102, 255, 0.3);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(0, 102, 255, 0.4);
+    }
+
+    .cta-button-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      padding: 1rem 2rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cta-button-outline:hover {
+      background: var(--primary);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* Stats */
+    .stats {
+      background: var(--gradient);
+      color: white;
+      padding: 4rem 5%;
+      text-align: center;
+    }
+
+    .stats-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .stat-item h3 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      font-weight: 800;
+    }
+
+    .stat-item p {
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
+    /* Sections */
+    .section {
+      padding: 5rem 5%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      color: var(--black);
+    }
+
+    /* Cards */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: var(--white);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--black);
+      font-weight: 600;
+    }
+
+    .card p {
+      color: var(--gray-medium);
+      line-height: 1.6;
+    }
+
+    /* Formularbereich */
+    .form-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5rem 5%;
+      background: var(--white);
+    }
+  
+    .form-container {
+      max-width: 800px;
+      width: 100%;
+      padding: 3rem;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-hover);
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .form-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient);
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .security-badge {
+      position: absolute;
+      top: -15px;
+      right: 20px;
+      background: var(--success);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .form-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--gray-dark);
+      font-size: 0.95rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+      background: var(--white);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+      background: var(--white);
+    }
+
+    select.form-control {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23333333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1.2rem center;
+      background-size: 14px;
+    }
+
+    .privacy-check {
+      margin: 2rem 0;
+      display: flex;
+      align-items: flex-start;
+      background: var(--gray-light);
+      padding: 1.5rem;
+      border-radius: 10px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .privacy-check input {
+      margin-right: 0.8rem;
+      margin-top: 0.2rem;
+      transform: scale(1.2);
+    }
+
+    .privacy-check label {
+      font-size: 0.9rem;
+      color: var(--gray-medium);
+      line-height: 1.5;
+    }
+
+    .privacy-check a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .privacy-check a:hover {
+      text-decoration: underline;
+    }
+
+    /* Bestätigungsmeldung */
+    .confirmation-message {
+      display: none;
+      background-color: var(--white);
+      padding: 3rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .confirmation-message h3 {
+      color: var(--success);
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .confirmation-icon {
+      font-size: 4rem;
+      color: var(--success);
+      margin-bottom: 1.5rem;
+    }
+
+    /* FAQ */
+    .faq {
+      background-color: var(--gray-light);
+      padding: 5rem 5%;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+      background-color: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .faq-item:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .faq-question {
+      padding: 1.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+      background: var(--white);
+    }
+
+    .faq-question:hover {
+      color: var(--primary);
+    }
+
+    .faq-question i {
+      transition: var(--transition);
+      color: var(--primary);
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: var(--white);
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 0 1.5rem 1.5rem;
+      max-height: 500px;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+      color: var(--white);
+      padding: 4rem 5% 2rem;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-column h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .footer-column p, .footer-column address {
+      color: #B3B3B3;
+      font-style: normal;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .footer-links a {
+      color: #B3B3B3;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      color: #B3B3B3;
+      font-size: 1.2rem;
+      transition: var(--transition);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-links a:hover {
+      color: var(--white);
+      background: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .legal-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .legal-links a {
+      color: #B3B3B3;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      font-weight: 500;
+    }
+
+    .legal-links a:hover {
+      color: var(--white);
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 2rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    /* Cookie Banner Styles */
+    .cookie-banner {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      max-width: 500px;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-hover);
+      z-index: 10000;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      animation: slideInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cookie-container {
+      padding: 1.5rem;
+    }
+
+    .cookie-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .cookie-header i {
+      font-size: 1.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cookie-header h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--black);
+      margin: 0;
+    }
+
+    .cookie-content {
+      margin-bottom: 1.5rem;
+    }
+
+    .cookie-content p {
+      color: var(--gray-medium);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .cookie-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .cookie-option {
+      padding: 1rem;
+      background: var(--gray-light);
+      border-radius: 10px;
+      border-left: 3px solid var(--primary);
+    }
+
+    .option-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .option-title {
+      font-weight: 600;
+      color: var(--black);
+      font-size: 0.95rem;
+    }
+
+    .option-description {
+      font-size: 0.85rem;
+      color: var(--gray-medium);
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* Toggle Switch */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: var(--transition);
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: var(--transition);
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background: var(--gradient);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+
+    input:disabled + .slider {
+      background: var(--primary);
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* Cookie Actions */
+    .cookie-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .primary-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .cookie-btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: inherit;
+    }
+
+    .cookie-btn.primary {
+      background: var(--gradient);
+      color: var(--white);
+      box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+    }
+
+    .cookie-btn.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+    }
+
+    .cookie-btn.outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .cookie-btn.outline:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .cookie-btn.secondary {
+      background: transparent;
+      color: var(--gray-medium);
+      border: none;
+    }
+
+    .cookie-btn.secondary:hover {
+      color: var(--primary);
+    }
+
+    /* Cookie Links */
+    .cookie-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .cookie-links a {
+      color: var(--gray-medium);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: var(--transition);
+    }
+
+    .cookie-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Cookie Settings Button */
+    .cookie-settings-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--gradient);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(0, 102, 255, 0.3);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cookie-settings-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 102, 255, 0.4);
+    }
+
+    /* Animations */
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideOutDown {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(100px);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      nav {
+        gap: 1.5rem;
+      }
+      
+      .form-container {
+        padding: 2rem;
+      }
+      
+      .trust-badges {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .section {
+        padding: 3rem 5%;
+      }
+      
+      .card-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .cookie-banner {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+      }
+      
+      .cookie-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .primary-actions {
+        justify-content: stretch;
+      }
+      
+      .cookie-btn {
+        flex: 1;
+        text-align: center;
+      }
+      
+      .cookie-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 5%;
+      }
+      
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+      
+      .hero {
+        padding: 4rem 5%;
+      }
+      
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .form-container {
+        padding: 1.5rem;
+      }
+      
+      .form-title {
+        font-size: 1.5rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .legal-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .cookie-container {
+        padding: 1rem;
+      }
+      
+      .cookie-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+      }
+      
+      .cookie-settings-btn {
+        bottom: 10px;
+        right: 10px;
+        font-size: 0.8rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+
+    /* Ladeanimation */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .fa-spinner {
+      animation: spin 1s linear infinite;
+    }
+
+    /* Barrierefreiheit */
+    :focus {
+      outline: 3px solid var(--primary);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#start" class="logo">
+      <i class="fas fa-mobile-alt logo-icon"></i>
+      <span>Techbuy</span>
+    </a>
+    <nav>
+      <a href="#start">Startseite</a>
+      <a href="#vorteile">Vorteile</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#verkaufen">Jetzt verkaufen</a>
+    </nav>
+  </header>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/491630448214?text=Hallo%20Techbuy%2C%20ich%20m%C3%B6chte%20mein%20gebrauchtes%20Handy%20verkaufen." 
+     class="whatsapp-float" 
+     target="_blank"
+     aria-label="Kontaktieren Sie uns per WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <div class="whatsapp-tooltip">Rund um die Uhr per WhatsApp erreichbar!</div>
+  </a>
+
+  <!-- Trust Badges -->
+  <div class="trust-badges">
+    <div class="trust-badge">
+      <i class="fas fa-shield-alt"></i>
+      <span>Sicherer Handel</span>
+    </div>
+    <div class="trust-badge">
+      <i class="fas fa-lock"></i>
+      <span>SSL-Verschlüsselung</span>
+    </div>
+    <div class="trust-badge">
+      <i class="fas fa-star"></i>
+      <span>Faire Preise</span>
+    </div>
+    <div class="trust-badge">
+      <i class="fas fa-check-circle"></i>
+      <span>Einfacher Ablauf</span>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="start">
+    <div class="hero-content">
+      <h1>Gebrauchtes Handy verkaufen zum besten Preis</h1>
+      <p>Verkaufen Sie Ihr gebrauchtes Smartphone sicher und einfach bei Techbuy. Faire Preise, kostenloser Versand und schnelle Auszahlung.</p>
+      <div class="hero-buttons">
+        <a href="#verkaufen" class="cta-button">
+          <i class="fas fa-bolt"></i> Jetzt Handy verkaufen
+        </a>
+        <a href="#vorteile" class="cta-button-outline">
+          <i class="fas fa-info-circle"></i> Mehr erfahren
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="stats-container">
+      <div class="stat-item">
+        <h3>100+</h3>
+        <p>Zufriedene Kunden</p>
+      </div>
+      <div class="stat-item">
+        <h3>24h</h3>
+        <p>Schnelle Auszahlung</p>
+      </div>
+      <div class="stat-item">
+        <h3>100%</h3>
+        <p>Faire Auszahlung</p>
+      </div>
+      <div class="stat-item">
+        <h3>100%</h3>
+        <p>Sicherer Handel</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vorteile -->
+  <section class="section" id="vorteile">
+    <h2 class="section-title">Warum Techbuy?</h2>
+    <div class="card-container">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-bolt"></i></div>
+        <h3>Blitzschnell</h3>
+        <p>Unverbindliches Angebot in unter 60 Sekunden – ganz ohne Anmeldung oder Verpflichtungen.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-lock"></i></div>
+        <h3>Sicher & DSGVO-konform</h3>
+        <p>Ihre Daten sind bei uns sicher. Wir halten uns strikt an die Datenschutz-Grundverordnung.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-euro-sign"></i></div>
+        <h3>Bester Preis</h3>
+        <p>Transparente Bewertung und faire Preise basierend auf aktuellen Marktwerten.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ablauf -->
+  <section class="section" id="ablauf">
+    <h2 class="section-title">So einfach geht's</h2>
+    <div class="card-container">
+      <div class="card">
+        <div class="card-icon">1</div>
+        <h3>Angebot anfordern</h3>
+        <p>Füllen Sie unser Formular aus und erhalten Sie sofort ein unverbindliches Angebot.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">2</div>
+        <h3>Kostenlos versenden</h3>
+        <p>Wir senden Ihnen einen kostenlosen Versandlabel – komplett kostenfrei für Sie.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">3</div>
+        <h3>Zahlung erhalten</h3>
+        <p>Nach Prüfung überweisen wir den Betrag innerhalb von 24 Stunden.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <h2 class="section-title">Häufige Fragen</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">
+          Wie wird der Preis berechnet?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Unser Preiskalkulator berücksichtigt Marktpreise, Zustand, Speicherkapazität und aktuelle Nachfrage für Ihr Gerät.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          Wie lange dauert die Auszahlung?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Nach Prüfung Ihres Geräts erfolgt die Auszahlung in der Regel innerhalb von 24 Stunden.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          Was passiert bei abweichendem Zustand?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Wir kontaktieren Sie umgehend und machen Ihnen ein neues, angepasstes Angebot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verkaufsformular -->
+  <section class="form-section" id="verkaufen">
+    <div class="form-container">
+      <div class="security-badge">
+        <i class="fas fa-lock"></i>
+        <span>Sichere Verbindung</span>
+      </div>
+      
+      <h2 class="form-title">Jetzt gebrauchtes Handy verkaufen</h2>
+
+      <!-- Erfolgsnachricht -->
+      <div id="success-message" class="confirmation-message">
+        <div class="confirmation-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h3>Vielen Dank für Ihre Anfrage!</h3>
+        <p>Wir haben Ihre Verkaufsanfrage erhalten und werden uns innerhalb von 24 Stunden mit einem unverbindlichen Angebot bei Ihnen melden.</p>
+        <p><strong>Bitte überprüfen Sie auch Ihren Spam-Ordner.</strong></p>
+      </div>
+
+      <!-- Formular -->
+      <form id="sell-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name">Vor- und Nachname*</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-Mail-Adresse*</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Telefonnummer (optional)</label>
+            <input type="tel" id="phone" name="phone" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="brand">Handy-Marke*</label>
+            <select id="brand" name="brand" class="form-control" required>
+              <option value="">-- Bitte auswählen --</option>
+              <option>Apple iPhone</option>
+              <option>Samsung</option>
+              <option>Huawei</option>
+              <option>Xiaomi</option>
+              <option>Google Pixel</option>
+              <option>OnePlus</option>
+              <option>Sony</option>
+              <option>Andere</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="model">Modell*</label>
+            <input type="text" id="model" name="model" class="form-control" required placeholder="z.B. iPhone 13 Pro, Galaxy S22">
+          </div>
+
+          <div class="form-group">
+            <label for="storage">Speicherkapazität*</label>
+            <input type="text" id="storage" name="storage" class="form-control" required placeholder="z.B. 64GB, 128GB, 256GB">
+          </div>
+
+          <div class="form-group">
+            <label for="condition">Zustand*</label>
+            <select id="condition" name="condition" class="form-control" required>
+              <option value="">-- Bitte auswählen --</option>
+              <option>Neu (originalverpackt)</option>
+              <option>Wie neu (keine Gebrauchsspuren)</option>
+              <option>Sehr Gut (leichte Gebrauchsspuren)</option>
+              <option>Gut (sichtbare Gebrauchsspuren)</option>
+              <option>Akzeptabel (starke Gebrauchsspuren)</option>
+              <option>Riss, Bruch (Gebrochenes Display)</option>
+              <option>Defekt (funktioniert nicht)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="functional">Voll funktionsfähig?*</label>
+            <select id="functional" name="functional" class="form-control" required>
+              <option value="">-- Bitte auswählen --</option>
+              <option>Ja</option>
+              <option>Nein</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="accessories">Lieferumfang*</label>
+            <select id="accessories" name="accessories" class="form-control" required>
+              <option value="">-- Bitte auswählen --</option>
+              <option>Komplett (Ladekabel, OVP)</option>
+              <option>Nur Gerät</option>
+              <option>Gerät + Ladekabel</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="original_packaging">Originalverpackung?*</label>
+            <select id="original_packaging" name="original_packaging" class="form-control" required>
+              <option value="">-- Bitte auswählen --</option>
+              <option>Ja</option>
+              <option>Nein</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="unlocked">Frei von Sperren?*</label>
+            <select id="unlocked" name="unlocked" class="form-control" required>
+              <option value="">-- Bitte auswählen --</option>
+              <option>Ja</option>
+              <option>Nein</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="repaired">Bereits repariert?*</label>
+            <select id="repaired" name="repaired" class="form-control" required>
+              <option value="">-- Bitte auswählen --</option>
+              <option>Nein</option>
+              <option>Ja (Display)</option>
+              <option>Ja (Akku)</option>
+              <option>Ja (Anderes)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Datenschutz -->
+        <div class="privacy-check">
+          <input type="checkbox" id="privacy" name="privacy" required>
+          <label for="privacy">
+            Ich stimme der Verarbeitung meiner Daten gemäß der <a href="Datenschutz.html" target="_blank">Datenschutzerklärung</a> zu. Die <a href="AGB.html" target="_blank">AGB</a> habe ich zur Kenntnis genommen.
+          </label>
+        </div>
+
+        <div class="privacy-check">
+          <input type="checkbox" id="ustg" name="ustg" required>
+          <label for="ustg">
+            Ich bin ein privater Verkäufer im Sinne des § 19 UStG und nicht umsatzsteuerpflichtig. Der Verkauf unterliegt daher nicht der Umsatzsteuer.
+          </label>
+        </div>
+
+        <!-- Absenden -->
+        <button type="submit" class="cta-button" style="width: 100%; justify-content: center;">
+          <i class="fas fa-lock"></i> Kostenloses Angebot anfordern
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Techbuy - Ihr Partner für Handyankauf</h3>
+        <p>Ihr zuverlässiger Partner für den Ankauf gebrauchter Smartphones. Schnell, sicher und fair.</p>
+        <div class="social-links">
+          <a href="https://facebook.com/DEINE-SEITE" aria-label="Facebook" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://instagram.com/DEIN-USERNAME" aria-label="Instagram" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://tiktok.com/@DEIN-USERNAME" aria-label="TikTok" target="_blank">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://wa.me/491630448214" aria-label="WhatsApp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Kontakt</h3>
+        <address>
+          Techbuy Business<br>
+          Inhaber: Ahmad Amir Popal<br>
+          Krümmelstraße 2<br>
+          21502 Geesthacht<br>
+          Deutschland
+        </address>
+        <p>E-Mail: <a href="mailto:info@techbuyankauf.de">info@techbuyankauf.de</a></p>
+        <p>WhatsApp: <a href="https://wa.me/491630448214">+49 163 0448214</a></p>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Rechtliches</h3>
+        <ul class="footer-links">
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="Datenschutz.html">Datenschutz</a></li>
+          <li><a href="AGB.html">AGB</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="legal-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="Datenschutz.html">Datenschutz</a>
+      <a href="AGB.html">AGB</a>
+    </div>
+    
+    <div class="copyright">
+      &copy; 2024 Techbuy. Alle Rechte vorbehalten.
+    </div>
+  </footer>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" class="cookie-banner" style="display: none;">
+    <div class="cookie-container">
+      <div class="cookie-header">
+        <i class="fas fa-cookie-bite"></i>
+        <h3>Cookie-Einstellungen</h3>
+      </div>
+      
+      <div class="cookie-content">
+        <p>Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten. Sie können Ihre Präferenzen jederzeit anpassen.</p>
+        
+        <div class="cookie-options">
+          <div class="cookie-option">
+            <div class="option-header">
+              <span class="option-title">Notwendige Cookies</span>
+              <label class="switch">
+                <input type="checkbox" id="necessary-cookies" checked disabled>
+                <span class="slider"></span>
+              </label>
+            </div>
+            <p class="option-description">Diese Cookies sind für die Grundfunktionen der Website erforderlich und können nicht deaktiviert werden.</p>
+          </div>
+          
+          <div class="cookie-option">
+            <div class="option-header">
+              <span class="option-title">Analytics Cookies</span>
+              <label class="switch">
+                <input type="checkbox" id="analytics-cookies">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <p class="option-description">Helfen uns zu verstehen, wie Besucher mit unserer Website interagieren.</p>
+          </div>
+          
+          <div class="cookie-option">
+            <div class="option-header">
+              <span class="option-title">Marketing Cookies</span>
+              <label class="switch">
+                <input type="checkbox" id="marketing-cookies">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <p class="option-description">Werden verwendet, um relevante Werbung anzuzeigen und die Leistung zu messen.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cookie-actions">
+        <button class="cookie-btn secondary" id="cookie-settings">
+          Erweiterte Einstellungen
+        </button>
+        <div class="primary-actions">
+          <button class="cookie-btn outline" id="reject-all">
+            Nur notwendige
+          </button>
+          <button class="cookie-btn primary" id="accept-all">
+            Alle akzeptieren
+          </button>
+        </div>
+      </div>
+      
+      <div class="cookie-links">
+        <a href="Datenschutz.html#cookies" target="_blank">Cookie-Richtlinie</a>
+        <a href="Datenschutz.html" target="_blank">Datenschutz</a>
+        <a href="impressum.html" target="_blank">Impressum</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Einstellungen Button (fixed) -->
+  <button id="cookie-settings-btn" class="cookie-settings-btn" style="display: none;">
+    <i class="fas fa-sliders-h"></i>
+    Cookie-Einstellungen
+  </button>
+
+  <script>
+    // Cookie Management - OPTIMIERT FÜR GOOGLE ADS CONVERSIONS
+    class CookieConsent {
+      constructor() {
+        this.banner = document.getElementById('cookie-banner');
+        this.settingsBtn = document.getElementById('cookie-settings-btn');
+        this.init();
+      }
+
+      init() {
+        // Event Listeners
+        document.getElementById('accept-all').addEventListener('click', () => this.acceptAll());
+        document.getElementById('reject-all').addEventListener('click', () => this.rejectAll());
+        document.getElementById('cookie-settings').addEventListener('click', () => this.showSettings());
+        this.settingsBtn.addEventListener('click', () => this.showBanner());
+
+        // Check if consent already given
+        const consent = this.getConsent();
+        if (!consent) {
+          this.showBanner();
+        } else {
+          this.applyConsent(consent);
+          // WICHTIG: Google Analytics sofort aktivieren wenn bereits erlaubt
+          if (consent.analytics && typeof gtag !== 'undefined') {
+            this.enableGoogleAnalytics();
+          }
+        }
+      }
+
+      showBanner() {
+        this.banner.style.display = 'block';
+        this.settingsBtn.style.display = 'none';
+      }
+
+      hideBanner() {
+        this.banner.style.animation = 'slideOutDown 0.5s ease forwards';
+        setTimeout(() => {
+          this.banner.style.display = 'none';
+          this.settingsBtn.style.display = 'flex';
+        }, 500);
+      }
+
+      showSettings() {
+        alert('Erweiterte Cookie-Einstellungen können in der Datenschutzerklärung angepasst werden.');
+      }
+
+      acceptAll() {
+        const consent = {
+          necessary: true,
+          analytics: true,
+          marketing: true,
+          timestamp: new Date().toISOString()
+        };
+        
+        this.setConsent(consent);
+        this.applyConsent(consent);
+        this.hideBanner();
+        
+        // GOOGLE ANALYTICS & CONVERSIONS VOLLSTÄNDIG AKTIVIEREN
+        this.enableGoogleAnalytics();
+        
+        // Conversion Tracking für bereits ausgeführte Aktionen
+        this.trackExistingConversions();
+      }
+
+      rejectAll() {
+        const consent = {
+          necessary: true,
+          analytics: false,
+          marketing: false,
+          timestamp: new Date().toISOString()
+        };
+        
+        this.setConsent(consent);
+        this.applyConsent(consent);
+        this.hideBanner();
+        
+        // Google Analytics deaktivieren (nur wenn abgelehnt)
+        if (typeof gtag !== 'undefined') {
+          gtag('consent', 'update', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied'
+          });
+        }
+      }
+
+      enableGoogleAnalytics() {
+        if (typeof gtag !== 'undefined') {
+          // GOOGLE ADS & ANALYTICS VOLLSTÄNDIG AKTIVIEREN
+          gtag('consent', 'update', {
+            'analytics_storage': 'granted',
+            'ad_storage': 'granted'
+          });
+          
+          // Seite neu tracken mit aktiviertem Consent
+          gtag('config', 'AW-17657295652', {
+            'page_title': document.title,
+            'page_location': window.location.href,
+            'anonymize_ip': false
+          });
+          
+          console.log('Google Ads Conversion Tracking aktiviert');
+        }
+      }
+
+      trackExistingConversions() {
+        // Hier könnten vorherige Conversion-Events nachgetrackt werden
+        console.log('Bereits ausgeführte Conversion-Events würden jetzt nachgetrackt');
+      }
+
+      setConsent(consent) {
+        localStorage.setItem('cookieConsent', JSON.stringify(consent));
+        
+        // Set cookie for server-side (30 Tage)
+        const date = new Date();
+        date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
+        document.cookie = `cookieConsent=${JSON.stringify(consent)}; expires=${date.toUTCString()}; path=/; SameSite=Lax`;
+      }
+
+      getConsent() {
+        const stored = localStorage.getItem('cookieConsent');
+        if (stored) {
+          return JSON.parse(stored);
+        }
+        
+        const cookie = document.cookie
+          .split('; ')
+          .find(row => row.startsWith('cookieConsent='));
+        
+        if (cookie) {
+          return JSON.parse(cookie.split('=')[1]);
+        }
+        
+        return null;
+      }
+
+      applyConsent(consent) {
+        document.getElementById('analytics-cookies').checked = consent.analytics;
+        document.getElementById('marketing-cookies').checked = consent.marketing;
+      }
+    }
+
+    // Form Submission mit Conversion Tracking
+    document.getElementById('sell-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const form = event.target;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      
+      // Loading State
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Wird gesendet...';
+      submitBtn.disabled = true;
+
+      // FormData erstellen
+      const formData = new FormData(form);
+      
+      // Nachricht für die E-Mail erstellen
+      const message = `
+Neue Verkaufsanfrage von Techbuy:
+
+Name: ${formData.get('name')}
+Email: ${formData.get('email')}
+Telefon: ${formData.get('phone') || 'Nicht angegeben'}
+Marke: ${formData.get('brand')}
+Modell: ${formData.get('model')}
+Speicher: ${formData.get('storage')}
+Zustand: ${formData.get('condition')}
+Funktionsfähig: ${formData.get('functional')}
+Lieferumfang: ${formData.get('accessories')}
+Originalverpackung: ${formData.get('original_packaging')}
+Frei von Sperren: ${formData.get('unlocked')}
+Repariert: ${formData.get('repaired')}
+      `.trim();
+
+      // FormSubmit.co AJAX Request
+      fetch('https://formsubmit.co/ajax/techbuybusiness1@gmail.com', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          message: message,
+          _subject: 'Neue Verkaufsanfrage - Techbuy',
+          _template: 'table',
+          _captcha: 'false'
+        })
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Erfolg
+        document.getElementById('success-message').style.display = 'block';
+        form.style.display = 'none';
+        document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
+        
+        // GOOGLE ADS CONVERSION TRACKING
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17657259652, dE9BCJvp07EbEITN0eNB'
+            'value': 1.0,
+            'currency': 'EUR',
+            'transaction_id': 'techbuy_, 22.10.2025'
+          });
+          console.log('Google Ads Conversion getrackt');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        alert('Es gab ein Problem beim Senden. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns per WhatsApp.');
+      });
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentNode;
+        const isActive = item.classList.contains('active');
+        
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+          otherItem.classList.remove('active');
+        });
+        
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId !== '#') {
+          e.preventDefault();
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // Header Background bei Scroll
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(255, 255, 255, 0.98)';
+        header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+      } else {
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.08)';
+      }
+    });
+
+    // Initialize Cookie Consent
+    document.addEventListener('DOMContentLoaded', () => {
+      new CookieConsent();
+    });
+  </script>
+</body>
+</html>
