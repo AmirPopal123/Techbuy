@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Techbuy – Verkauf abschließen</title>
+  <meta name="description" content="Persönliche Daten für Ihren Verkauf bei Techbuy">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Konfetti-Bibliothek -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    :root {
+      --primary: #0066FF;
+      --primary-dark: #0052CC;
+      --primary-light: #E6F0FF;
+      --black: #1A1A1A;
+      --gray-dark: #333333;
+      --gray-medium: #666666;
+      --gray-light: #F5F5F5;
+      --white: #FFFFFF;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.12);
+      --radius: 12px;
+      --transition: all 0.3s ease;
+      --success: #4CAF50;
+      --error: #F44336;
+      --warning: #FF9800;
+      --paypal: #0070BA;
+      --paypal-light: #E6F0FF;
+      --bank: #28A745;
+      --bank-light: #E8F5E8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--black);
+      line-height: 1.6;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+    }
+
+    /* Header */
+    .header {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--black); font-weight: 700; font-size: 1.5rem; }
+    .logo-icon { color: var(--primary); font-size: 2rem; }
+
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--gray-dark); font-weight: 500; transition: var(--transition); position: relative; }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--primary); transition: var(--transition); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .main-content { flex: 1; display: flex; align-items: center; justify-content: center; width: 100%; padding: 2rem 1rem; }
+
+    .container {
+      background-color: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.5rem;
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp { to { transform: translateY(0); opacity: 1; } }
+
+    .security-badge {
+      position: absolute;
+      top: -15px;
+      right: 20px;
+      background: linear-gradient(135deg, var(--success), #66BB6A);
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      animation: pulse 2s infinite;
+      z-index: 10;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+      50% { transform: scale(1.05); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); }
+      100% { transform: scale(1); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-title { font-size: 1.1rem; margin: 1.5rem 0 1rem 0; color: var(--gray-dark); display: flex; align-items: center; gap: 0.5rem; }
+    .section-title i { color: var(--primary); }
+
+    .form-group { width: 100%; margin-bottom: 1.2rem; position: relative; }
+    .form-group label { display: block; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.9rem; }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: var(--transition);
+      background: var(--white);
+    }
+    .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1); animation: inputPulse 0.5s ease; }
+
+    @keyframes inputPulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+
+    .form-control.error { border-color: var(--error); }
+    .form-control.success { border-color: var(--success); }
+
+    .error-message { color: var(--error); font-size: 0.75rem; margin-top: 0.3rem; display: block; opacity: 0; transform: translateY(-5px); transition: var(--transition); }
+    .error-message.show { opacity: 1; transform: translateY(0); }
+
+    /* Auszahlungsmethoden */
+    .payment-methods { display: flex; gap: 1rem; margin: 1rem 0; }
+    .payment-method {
+      flex: 1; border: 2px solid #e0e0e0; border-radius: var(--radius);
+      padding: 1.5rem 1rem; text-align: center; cursor: pointer;
+      transition: var(--transition); background: var(--white);
+    }
+    .payment-method:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    .payment-method.selected { border-color: var(--primary); transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+
+    .payment-method.paypal.selected { background: var(--paypal-light); border-color: var(--paypal); }
+    .payment-method.bank.selected { background: var(--bank-light); border-color: var(--bank); }
+
+    .payment-logo { width: 60px; height: 60px; margin: 0 auto 0.5rem; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; transition: var(--transition); }
+    .payment-method.selected .payment-logo { transform: scale(1.1); }
+    .paypal-logo { color: var(--paypal); }
+    .bank-logo { color: var(--bank); }
+    .payment-label { font-weight: 600; font-size: 0.9rem; color: var(--gray-dark); }
+
+    /* Zahlungsdetails */
+    .payment-details {
+      margin: 1.5rem 0; padding: 1.5rem; background: var(--gray-light);
+      border-radius: var(--radius); border-left: 4px solid var(--primary);
+      animation: slideDown 0.5s ease;
+    }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .progress-container { width: 100%; height: 6px; background-color: #e0e0e0; border-radius: 3px; margin: 1.5rem 0; overflow: hidden; position: relative; }
+    .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), var(--primary-dark)); border-radius: 3px; transition: width 0.5s ease; position: relative; overflow: hidden; }
+    .progress-bar::after {
+      content: ''; position: absolute; top: 0; left: 0; bottom: 0; right: 0;
+      background-image: linear-gradient(45deg, rgba(255,255,255,0.3) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.3) 75%, transparent 75%, transparent);
+      background-size: 1rem 1rem; animation: move 1s linear infinite;
+    }
+    @keyframes move { 0% { background-position: 0 0; } 100% { background-position: 1rem 0; } }
+
+    .progress-text { text-align: center; font-size: 0.8rem; color: var(--gray-medium); margin-top: 0.5rem; }
+
+    .cta-button {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white); border: none; padding: 1rem 2rem; font-size: 1rem; font-weight: 600;
+      border-radius: var(--radius); cursor: pointer; width: 100%; text-align: center;
+      transition: var(--transition); position: relative; overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3); animation: buttonPulse 2s infinite;
+    }
+    @keyframes buttonPulse { 0%{box-shadow:0 4px 12px rgba(0,102,255,0.3);} 50%{box-shadow:0 4px 20px rgba(0,102,255,0.6);} 100%{box-shadow:0 4px 12px rgba(0,102,255,0.3);} }
+    .cta-button:hover { transform: translateY(-3px); animation: none; box-shadow: 0 8px 25px rgba(0, 102, 255, 0.5); }
+    .cta-button:active { transform: translateY(0); }
+    .cta-button:disabled { background: var(--gray-medium); cursor: not-allowed; transform: none; box-shadow: none; animation: none; }
+
+    .thankyou { text-align: center; padding: 2rem 0; transform: scale(0.8); opacity: 0; animation: thankYouAppear 0.8s ease 0.5s forwards; }
+    @keyframes thankYouAppear { to { transform: scale(1); opacity: 1; } }
+    .confirmation-icon { font-size: 4rem; color: var(--success); margin-bottom: 1.5rem; animation: bounceIn 0.8s ease; }
+    @keyframes bounceIn { 0%{transform:scale(0.3);opacity:0;}50%{transform:scale(1.1);opacity:1;}70%{transform:scale(0.9);}100%{transform:scale(1);} }
+
+    .hidden { display: none; }
+
+    /* Footer */
+    .footer { width: 100%; background: rgba(0,0,0,0.8); color: var(--white); padding: 2rem 1rem; margin-top: auto; }
+    .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; }
+    .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.8); text-decoration: none; transition: var(--transition); }
+    .footer-links a:hover { color: var(--white); }
+    .social-links { display: flex; gap: 1rem; }
+    .social-link { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; transition: var(--transition); }
+    .social-link:hover { background: var(--primary); transform: translateY(-2px); }
+    .copyright { grid-column: 1 / -1; text-align: center; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .header { padding: 1rem; }
+      .header-content { flex-direction: column; gap: 1rem; }
+      .nav-links { gap: 1rem; }
+      .container { padding: 2rem; margin: 0.5rem; }
+      h1 { font-size: 1.3rem; margin-bottom: 1.2rem; }
+      .form-group { margin-bottom: 1rem; }
+      .form-control { padding: 0.7rem 0.9rem; font-size: 0.95rem; }
+      .security-badge { position: relative; top: 0; right: 0; margin: -1rem auto 1rem auto; width: fit-content; font-size: 0.75rem; }
+      .payment-methods { flex-direction: column; }
+      .footer-content { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+      .footer-links { justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .main-content { padding: 1rem 0.5rem; }
+      .container { padding: 1.5rem; }
+      h1 { font-size: 1.2rem; }
+      .form-control { padding: 0.6rem 0.8rem; }
+      .cta-button { padding: 0.9rem 1.5rem; font-size: 0.95rem; }
+      .payment-details { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <a href="#" class="logo">
+        <i class="fas fa-laptop-code logo-icon"></i>
+        <span>Techbuy</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#"><i class="fas fa-home"></i> Startseite</a>
+        <a href="#"><i class="fas fa-info-circle"></i> Über uns</a>
+        <a href="#"><i class="fas fa-envelope"></i> Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <div class="security-badge">
+        <i class="fas fa-lock"></i><span>Sichere Verbindung</span>
+      </div>
+
+      <!-- Formular -->
+      <div id="form-area">
+        <h1>Verkauf abschließen</h1>
+
+        <!-- Für AJAX: direkt den AJAX-Endpoint verwenden -->
+        <form id="angebot-form" action="https://formsubmit.co/ajax/techbuybusiness1@icloud.com" method="POST" novalidate>
+          <!-- Formsubmit Konfiguration -->
+          <input type="hidden" name="_subject" value="Neuer Verkauf - Techbuy">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+
+          <!-- Persönliche Daten -->
+          <div class="section-title">
+            <i class="fas fa-user"></i>
+            <span>Persönliche Daten</span>
+          </div>
+
+          <div class="form-group">
+            <label for="first_name">Vorname*</label>
+            <input type="text" id="first_name" name="first_name" class="form-control" required placeholder="Max" autocomplete="given-name">
+            <span class="error-message" id="first_name-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="last_name">Nachname*</label>
+            <input type="text" id="last_name" name="last_name" class="form-control" required placeholder="Mustermann" autocomplete="family-name">
+            <span class="error-message" id="last_name-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="birthdate">Geburtsdatum*</label>
+            <input type="date" id="birthdate" name="birthdate" class="form-control" required max="">
+            <span class="error-message" id="birthdate-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Adresse*</label>
+            <input type="text" id="address" name="address" class="form-control" required placeholder="Musterstraße 123" autocomplete="street-address">
+            <span class="error-message" id="address-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="zipcode">Postleitzahl*</label>
+            <input type="text" id="zipcode" name="zipcode" class="form-control" required placeholder="12345" inputmode="numeric" pattern="\\d{5}">
+            <span class="error-message" id="zipcode-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="city">Stadt*</label>
+            <input type="text" id="city" name="city" class="form-control" required placeholder="Musterstadt" autocomplete="address-level2">
+            <span class="error-message" id="city-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Telefonnummer</label>
+            <input type="tel" id="phone" name="phone" class="form-control" placeholder="+49 123 456789" autocomplete="tel">
+            <span class="error-message" id="phone-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-Mail*</label>
+            <input type="email" id="email" name="email" class="form-control" required placeholder="max@mustermann.de" autocomplete="email">
+            <span class="error-message" id="email-error"></span>
+          </div>
+
+          <!-- Auszahlungsmethode -->
+          <div class="section-title">
+            <i class="fas fa-money-bill-wave"></i>
+            <span>Auszahlungsmethode</span>
+          </div>
+
+          <div class="payment-methods" role="radiogroup" aria-label="Auszahlungsmethode">
+            <div class="payment-method paypal" data-method="paypal" tabindex="0" role="radio" aria-checked="false">
+              <div class="payment-logo paypal-logo"><i class="fab fa-paypal"></i></div>
+              <div class="payment-label">PayPal</div>
+            </div>
+            <div class="payment-method bank" data-method="bank" tabindex="0" role="radio" aria-checked="false">
+              <div class="payment-logo bank-logo"><i class="fas fa-university"></i></div>
+              <div class="payment-label">Banküberweisung</div>
+            </div>
+          </div>
+
+          <input type="hidden" name="payment_method" id="payment_method" value="">
+
+          <!-- Zahlungsdetails -->
+          <div id="payment-details" class="payment-details hidden" aria-live="polite">
+            <div id="paypal-fields" style="display:none;">
+              <div class="form-group">
+                <label for="paypal_email">PayPal E-Mail*</label>
+                <input type="email" id="paypal_email" name="paypal_email" class="form-control" placeholder="ihre.email@paypal.de" autocomplete="email">
+                <span class="error-message" id="paypal_email-error"></span>
+              </div>
+            </div>
+            <div id="bank-fields" style="display:none;">
+              <div class="form-group">
+                <label for="bank_name">Kontoinhaber*</label>
+                <input type="text" id="bank_name" name="bank_name" class="form-control" placeholder="Max Mustermann" autocomplete="name">
+                <span class="error-message" id="bank_name-error"></span>
+              </div>
+              <div class="form-group">
+                <label for="iban">IBAN*</label>
+                <input type="text" id="iban" name="iban" class="form-control" placeholder="DE89 3704 0044 0532 0130 00" inputmode="text" autocomplete="iban">
+                <span class="error-message" id="iban-error"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+          <div class="progress-text" id="progress-text">0% ausgefüllt</div>
+
+          <button type="submit" class="cta-button" id="submit-button">
+            <i class="fas fa-check-circle" style="margin-right: 8px;"></i> Verkauf abschließen
+          </button>
+        </form>
+      </div>
+
+      <!-- Danke-Nachricht -->
+      <div id="thankyou" class="hidden thankyou" aria-live="polite">
+        <div class="confirmation-icon">✅</div>
+        <h2 style="color: var(--success); margin-bottom: 1rem;">Erfolgreich abgeschlossen!</h2>
+        <p>Vielen Dank für Ihren Verkauf bei Techbuy!</p>
+        <p>Wir werden uns in Kürze bei Ihnen melden.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="ueber-uns.html">Über uns</a>
+      </div>
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; 2024 Techbuy. Alle Rechte vorbehalten.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ---- DOM Elemente
+    const form = document.getElementById("angebot-form");
+    const formArea = document.getElementById("form-area");
+    const thankyou = document.getElementById("thankyou");
+    const progressBar = document.getElementById("progress-bar");
+    const progressText = document.getElementById("progress-text");
+    const submitButton = document.getElementById("submit-button");
+    const paymentMethods = document.querySelectorAll('.payment-method');
+    const paymentDetails = document.getElementById('payment-details');
+    const paymentMethodInput = document.getElementById('payment_method');
+    const paypalFields = document.getElementById('paypal-fields');
+    const bankFields = document.getElementById('bank-fields');
+
+    // Heutiges Datum als Max fürs Geburtsdatum
+    document.getElementById('birthdate').max = new Date().toISOString().split('T')[0];
+
+    // ---- Validierungsfunktionen
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function validateZipcode(zipcode) {
+      return /^\d{5}$/.test(zipcode);
+    }
+
+    function validateIBAN(iban) {
+      const clean = iban.replace(/\s/g, '').toUpperCase();
+      return clean.startsWith('DE') && clean.length === 22;
+    }
+
+    function setRequiredForMethod(method) {
+      // Erst alles optional
+      document.getElementById('paypal_email').required = false;
+      document.getElementById('bank_name').required = false;
+      document.getElementById('iban').required = false;
+
+      if (method === 'paypal') {
+        document.getElementById('paypal_email').required = true;
+      } else if (method === 'bank') {
+        document.getElementById('bank_name').required = true;
+        document.getElementById('iban').required = true;
+      }
+    }
+
+    // ---- Auszahlungsmethode auswählen + togglen
+    function selectMethod(methodEl) {
+      paymentMethods.forEach(m => {
+        m.classList.remove('selected');
+        m.setAttribute('aria-checked', 'false');
+      });
+      methodEl.classList.add('selected');
+      methodEl.setAttribute('aria-checked', 'true');
+
+      const selectedMethod = methodEl.getAttribute('data-method');
+      paymentMethodInput.value = selectedMethod;
+
+      // Felder anzeigen/verstecken
+      paymentDetails.classList.remove('hidden');
+      if (selectedMethod === 'paypal') {
+        paypalFields.style.display = 'block';
+        bankFields.style.display = 'none';
+      } else {
+        paypalFields.style.display = 'none';
+        bankFields.style.display = 'block';
+      }
+      setRequiredForMethod(selectedMethod);
+      calculateProgress();
+    }
+
+    paymentMethods.forEach(method => {
+      method.addEventListener('click', () => selectMethod(method));
+      method.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          selectMethod(method);
+        }
+      });
+    });
+
+    // ---- Fortschritt berechnen
+    function calculateProgress() {
+      const baseFields = ['first_name','last_name','birthdate','address','zipcode','city','email'];
+      let filled = 0;
+
+      baseFields.forEach(id => {
+        const v = document.getElementById(id).value.trim();
+        if (v !== '') filled++;
+      });
+
+      // Zahlungsmethode & Zusatzfelder
+      if (paymentMethodInput.value) {
+        filled++;
+        if (paymentMethodInput.value === 'paypal') {
+          if (document.getElementById('paypal_email').value.trim() !== '') filled++;
+        } else if (paymentMethodInput.value === 'bank') {
+          if (document.getElementById('bank_name').value.trim() !== '') filled++;
+          if (document.getElementById('iban').value.trim() !== '') filled++;
+        }
+      }
+
+      const totalFields = 7 + (paymentMethodInput.value ? (paymentMethodInput.value === 'paypal' ? 2 : 3) : 0);
+      const progress = Math.round((filled / totalFields) * 100);
+      progressBar.style.width = `${progress}%`;
+      progressText.textContent = `${progress}% ausgefüllt`;
+    }
+
+    // ---- Fehlerdarstellung
+    function showError(element, errorElement, message) {
+      element.classList.add('error');
+      element.classList.remove('success');
+      errorElement.textContent = message;
+      errorElement.classList.add('show');
+    }
+
+    function clearError(element, errorElement) {
+      element.classList.remove('error');
+      element.classList.add('success');
+      errorElement.classList.remove('show');
+    }
+
+    // ---- Formular-Validierung
+    function validateForm() {
+      let isValid = true;
+
+      const requiredFields = ['first_name','last_name','birthdate','address','zipcode','city','email'];
+      requiredFields.forEach(id => {
+        const el = document.getElementById(id);
+        const err = document.getElementById(id + '-error');
+        if (!el.value.trim()) {
+          showError(el, err, 'Dieses Feld ist erforderlich');
+          isValid = false;
+        } else {
+          clearError(el, err);
+        }
+      });
+
+      // Email
+      const email = document.getElementById('email');
+      const emailErr = document.getElementById('email-error');
+      if (email.value && !validateEmail(email.value)) {
+        showError(email, emailErr, 'Bitte geben Sie eine gültige E-Mail ein');
+        isValid = false;
+      }
+
+      // PLZ
+      const zipcode = document.getElementById('zipcode');
+      const zipErr = document.getElementById('zipcode-error');
+      if (zipcode.value && !validateZipcode(zipcode.value)) {
+        showError(zipcode, zipErr, 'Bitte geben Sie eine gültige 5-stellige PLZ ein');
+        isValid = false;
+      }
+
+      // Zahlungsmethode
+      if (!paymentMethodInput.value) {
+        alert('Bitte wählen Sie eine Auszahlungsmethode aus');
+        isValid = false;
+      } else if (paymentMethodInput.value === 'paypal') {
+        const paypalEmail = document.getElementById('paypal_email');
+        const ppErr = document.getElementById('paypal_email-error');
+        if (!paypalEmail.value.trim()) {
+          showError(paypalEmail, ppErr, 'PayPal E-Mail ist erforderlich');
+          isValid = false;
+        } else if (!validateEmail(paypalEmail.value)) {
+          showError(paypalEmail, ppErr, 'Bitte geben Sie eine gültige PayPal E-Mail ein');
+          isValid = false;
+        } else {
+          clearError(paypalEmail, ppErr);
+        }
+      } else if (paymentMethodInput.value === 'bank') {
+        const bankName = document.getElementById('bank_name');
+        const bankErr = document.getElementById('bank_name-error');
+        const iban = document.getElementById('iban');
+        const ibanErr = document.getElementById('iban-error');
+
+        if (!bankName.value.trim()) {
+          showError(bankName, bankErr, 'Kontoinhaber ist erforderlich');
+          isValid = false;
+        } else {
+          clearError(bankName, bankErr);
+        }
+
+        if (!iban.value.trim()) {
+          showError(iban, ibanErr, 'IBAN ist erforderlich');
+          isValid = false;
+        } else if (!validateIBAN(iban.value)) {
+          showError(iban, ibanErr, 'Bitte geben Sie eine gültige deutsche IBAN ein');
+          isValid = false;
+        } else {
+          clearError(iban, ibanErr);
+        }
+      }
+
+      return isValid;
+    }
+
+    // ---- Konfetti
+    function triggerConfetti() {
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#0066FF', '#0052CC', '#4CAF50']
+      });
+    }
+
+    // ---- Submit-Handling (AJAX zu FormSubmit)
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      if (!validateForm()) return;
+
+      // UI sperren
+      submitButton.disabled = true;
+      const originalText = submitButton.innerHTML;
+      submitButton.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right:8px;"></i> Wird gesendet...';
+
+      try {
+        const formData = new FormData(form);
+
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (!response.ok) throw new Error('Fehler beim Senden');
+
+        // Erfolg: Danke-Seite anzeigen
+        formArea.classList.add('hidden');
+        thankyou.classList.remove('hidden');
+        triggerConfetti();
+
+        // Formular zurücksetzen (für erneute Nutzung)
+        form.reset();
+        paymentMethodInput.value = '';
+        paypalFields.style.display = 'none';
+        bankFields.style.display = 'none';
+        paymentDetails.classList.add('hidden');
+        setRequiredForMethod(null);
+        calculateProgress();
+
+      } catch (err) {
+        alert('Das Senden ist fehlgeschlagen. Bitte versuchen Sie es später erneut.');
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalText;
+      }
+    });
+
+    // ---- Fortschritt bei Eingabe
+    document.querySelectorAll('input').forEach(input => {
+      input.addEventListener('input', calculateProgress);
+    });
+
+    // Initial
+    calculateProgress();
+
+    // Shake-Animation für Fehler
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+        20%, 40%, 60%, 80% { transform: translateX(5px); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
